@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+
+    // Viewport mobile tag for sensible mobile support
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
+
+    block styles
+
+  body
+    block body
+
+    script(src="https://cdn.auth0.com/js/lock-8.1.js")
+    // The linker searches for this tag and adds js.  If there's no linker, we point to sails.io.js
+    // SCRIPTS
+    script(src="/js/dependencies/sails.io.js")
+    script(src="/js/pages/homepage.js")
+    // SCRIPTS END
+
