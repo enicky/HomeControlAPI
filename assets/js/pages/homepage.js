@@ -1,6 +1,7 @@
 /**
  * Created by nicholase on 19/01/16.
  */
+  $(function(){
 var lock = new Auth0Lock('Te51IapTbN96hBOWs6neimnMNhUDmFtb', 'enicky.eu.auth0.com');
 
 
@@ -24,3 +25,4 @@ function signin() {
   })
 
 }
+  })
