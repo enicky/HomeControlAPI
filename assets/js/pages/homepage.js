@@ -1,7 +1,7 @@
 /**
  * Created by nicholase on 19/01/16.
  */
-var lock = new Auth0Lock('vvQNfAbCbDRhnP8oCnZv4vIGWyuCbSa4', 'nicky.auth0.com');
+var lock = new Auth0Lock('Te51IapTbN96hBOWs6neimnMNhUDmFtb', 'enicky.eu.auth0.com');
 
 
 function signin() {
