@@ -5,15 +5,22 @@ var lock = new Auth0Lock('Te51IapTbN96hBOWs6neimnMNhUDmFtb', 'enicky.eu.auth0.co
 
 
 function signin() {
-  lock.showSignin(/*{
-    callbackURL: 'http://localhost:1337/auth/auth0/callback'
-    , responseType: 'code'
-    , authParams: {
-      scope: 'openid profile'
-    }
-  },*/function(err, profile, token){
-    console.log('err : ', err);
-    console.log('profile : ', profile);
-    console.log('token : ', token);
-  });
+  $('.btn-login').on('click', function(e){
+    e.preventDefault();
+    lock.show(function(err, profile, token){
+      if (err) {
+        // Error callback
+        alert('There was an error');
+      } else {
+        // Success callback
+
+        // Save the JWT token.
+        localStorage.setItem('userToken', token);
+
+        // Save the profile
+        userProfile = profile;
+      }
+    })
+  })
+
 }
