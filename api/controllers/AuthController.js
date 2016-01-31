@@ -167,9 +167,9 @@ var AuthController = {
 
         // Mark the session as authenticated to work with default Sails sessionAuth.js policy
         req.session.authenticated = true
-        req.token = jwToken.issue({id : user.id });
+        //req.token = jwToken.issue({id : user.id });
 
-        sails.log('debug','in callback : token == ', req.token);
+        //sails.log('debug','in callback : token == ', req.token);
         // Upon successful login, send the user to the homepage were req.user
         // will be available.
         res.redirect('/');

@@ -1,0 +1,168 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='Bootstrap Admin App + jQuery')
+    meta(name='keywords', content='app, responsive, jquery, bootstrap, dashboard, admin')
+    title Angle - Bootstrap Admin Template
+    // =============== VENDOR STYLES ===============
+    // FONT AWESOME
+    link(rel='stylesheet', href='/vendor/fontawesome/css/font-awesome.min.css')
+    // SIMPLE LINE ICONS
+    link(rel='stylesheet', href='/vendor/simple-line-icons/css/simple-line-icons.css')
+    // ANIMATE.CSS
+    link(rel='stylesheet', href='/vendor/animate.css/animate.min.css')
+    // WHIRL (spinners)
+    link(rel='stylesheet', href='/vendor/whirl/dist/whirl.css')
+    // =============== PAGE VENDOR STYLES ===============
+    // =============== BOOTSTRAP STYLES ===============
+    link#bscss(rel='stylesheet', href='/css/bootstrap.css')
+    // =============== APP STYLES ===============
+    link#maincss(rel='stylesheet', href='/css/app.css')
+    // Viewport mobile tag for sensible mobile support
+
+    block styles
+
+  body
+    .wrapper
+      // top navbar
+      header.topnavbar-wrapper
+        // START Top Navbar
+        nav.navbar.topnavbar(role='navigation')
+          // START navbar header
+          .navbar-header
+            a.navbar-brand(href='#/')
+              .brand-logo
+                img.img-responsive(src='img/logo.png', alt='App Logo')
+              .brand-logo-collapsed
+                img.img-responsive(src='img/logo-single.png', alt='App Logo')
+          // END navbar header
+          // START Nav wrapper
+          .nav-wrapper
+            // START Left navbar
+            ul.nav.navbar-nav
+              li
+                // Button used to collapse the left sidebar. Only visible on tablet and desktops
+                a.hidden-xs(href='#', data-toggle-state='aside-collapsed')
+                  em.fa.fa-navicon
+                // Button to show/hide the sidebar on mobile. Visible on mobile only.
+                a.visible-xs.sidebar-toggle(href='#', data-toggle-state='aside-toggled', data-no-persist='true')
+                  em.fa.fa-navicon
+            // END Left navbar
+            // START Right Navbar
+            ul.nav.navbar-nav.navbar-right
+              // Search icon
+              li
+                a(href='#', data-search-open='')
+                  em.icon-magnifier
+              // START Offsidebar button
+              li
+                a(href='#', data-toggle-state='offsidebar-open', data-no-persist='true')
+                  em.icon-notebook
+              // END Offsidebar menu
+            // END Right Navbar
+          // END Nav wrapper
+          // START Search form
+          form.navbar-form(role='search', action='search.html')
+            .form-group.has-feedback
+              input.form-control(type='text', placeholder='Type and hit enter ...')
+              .fa.fa-times.form-control-feedback(data-search-dismiss='')
+            button.hidden.btn.btn-default(type='submit') Submit
+          // END Search form
+        // END Top Navbar
+      // sidebar
+      aside.aside
+        // START Sidebar (left)
+        .aside-inner
+          nav.sidebar(data-sidebar-anyclick-close='')
+            // START sidebar nav
+            ul.nav
+              // Iterates over all sidebar items
+              li.nav-heading
+                span(data-localize='sidebar.heading.HEADER') Menu Navigation
+              li.active
+                a(href='/', title='Dashboard')
+                  em.fa.fa-file-o
+                  span(data-localize='sidebar.nav.SINGLEVIEW') Dashboard
+              li
+                a(href='#menuid', title='Menu', data-toggle='collapse')
+                  em.icon-folder
+                  span(data-localize='sidebar.nav.menu.MENU') Actions
+                ul#menuid.nav.sidebar-subnav.collapse
+                  li.sidebar-subnav-header Menu
+                  li
+                    a(href='/web/messages', title='Send Message')
+                      span(data-localize='sidebar.nav.menu.SUBMENU') Send Message
+            // END sidebar nav
+        // END Sidebar (left)
+      // offsidebar
+      aside.offsidebar.hide
+        // START Off Sidebar (right)
+        nav
+          div(role='tabpanel')
+            // Nav tabs
+            ul.nav.nav-tabs.nav-justified(role='tablist')
+              li.active(role='presentation')
+                a(href='#app-settings', aria-controls='app-settings', role='tab', data-toggle='tab')
+                  em.icon-equalizer.fa-lg
+              li(role='presentation')
+                a(href='#app-chat', aria-controls='app-chat', role='tab', data-toggle='tab')
+                  em.icon-user.fa-lg
+            // Tab panes
+            .tab-content
+              #app-settings.tab-pane.fade.in.active(role='tabpanel')
+                h3.text-center.text-thin Tab 1
+              #app-chat.tab-pane.fade(role='tabpanel')
+                h3.text-center.text-thin Tab 2
+        // END Off Sidebar (right)
+      // Main section
+      section
+        // Page content
+        .content-wrapper
+          .content-heading
+            // START Language list
+            .pull-right
+              .btn-group
+                button.btn.btn-default(type='button', data-toggle='dropdown') English
+                ul.dropdown-menu.dropdown-menu-right.animated.fadeInUpShort(role='menu')
+                  li
+                    a(href='#', data-set-lang='en') English
+                  li
+                    a(href='#', data-set-lang='es') Spanish
+            // END Language list
+            | Single View
+            small(data-localize='dashboard.WELCOME')
+          .row
+            .col-xs-12.text-center
+              block body
+      // Page footer
+      footer
+        span © 2015 - Angle
+
+
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js")
+    // BOOTSTRAP
+    script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    script(src="https://cdn.auth0.com/js/lock-8.1.js")
+    // The linker searches for this tag and adds js.  If there's no linker, we point to sails.io.js
+
+    script(src="/js/dependencies/sails.io.js")
+
+    script(src='/vendor/modernizr/modernizr.custom.js')
+    // STORAGE API
+    script(src='/vendor/jQuery-Storage-API/jquery.storageapi.js')
+    // JQUERY EASING
+    script(src='/vendor/jquery.easing/js/jquery.easing.js')
+    // ANIMO
+    script(src='/vendor/animo.js/animo.js')
+    // LOCALIZE
+    script(src='/vendor/jquery-localize-i18n/dist/jquery.localize.js')
+    // =============== PAGE VENDOR SCRIPTS ===============
+    // =============== APP SCRIPTS ===============
+    script(src='/js/app.js')
+
+    script(src="/js/pages/homepage.js")
+    block scripts

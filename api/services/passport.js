@@ -95,7 +95,7 @@ passport.connect = function (req, query, profile, next) {
   if (!user.username && !user.email) {
     return next(new Error('Neither a username nor email was available'));
   }
-
+  sails.log('debug','pre findone', provider, query.identifier.toString());
   Passport.findOne({
     provider   : provider
   , identifier : query.identifier.toString()
@@ -103,11 +103,13 @@ passport.connect = function (req, query, profile, next) {
     if (err) {
       return next(err);
     }
-
+    sails.log('debug','req;user : ', req.user);
+    sails.log('debug','user : ', user);
     if (!req.user) {
       // Scenario: A new user is attempting to sign up using a third-party
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
+      sails.log('debug','passport : ', passport);
       if (!passport) {
         User.create(user, function (err, user) {
           if (err) {

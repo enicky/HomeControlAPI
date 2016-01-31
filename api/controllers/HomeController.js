@@ -7,7 +7,14 @@
 
 module.exports = {
 	index : function(req, res){
-    res.view('homepage');
+    pubnub.whoIsThere(pubnub.adminChannelName, function(m){
+      sails.log('debug','callbac', m);
+      var model = {
+        uuids : m.uuids
+      };
+      res.view('./auth/dashboard/dashboard', model);
+    });
+
   }
 };
 

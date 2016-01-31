@@ -24,16 +24,10 @@
 module.exports = function (req, res, next) {
   // Initialize Passport
   passport.initialize()(req, res, function () {
-    sails.log('debug','passport initialize performed');
     // Use the built-in sessions
     passport.session()(req, res, function () {
-      sails.log('debug','passport session performed ... ');
       // Make the user available throughout the frontend
-      if(req.user != null){
 
-        var token = jwToken.issue({id : req.user.id });
-        sails.log('debug','jwtToken : ', token);
-      }
       res.locals.user = req.user;
 
       next();

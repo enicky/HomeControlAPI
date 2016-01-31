@@ -45,6 +45,8 @@ module.exports.routes = {
   'get /auth/:provider/:action': 'AuthController.callback',
   'get /api/index' : 'ApiController.index',
 
+  'get /web/messages' : 'MessagesController.index'
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

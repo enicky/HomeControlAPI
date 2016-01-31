@@ -25,7 +25,7 @@ module.exports.policies = {
     '*' : ['passport']
   },
   'HomeController' : {
-    '*' : ['passport']
+    '*' : ['passport', 'sessionAuth']
   },
   'UserController': {
     'create': true, // We dont need authorization here, allowing public access

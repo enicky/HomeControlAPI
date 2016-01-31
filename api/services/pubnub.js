@@ -32,7 +32,6 @@ module.exports = {
     pubnub.here_now({
       channel: channelName,
       callback : function(m){
-        sails.log('debug','Here now response : ', m);
         return cb(m);
       }
     })

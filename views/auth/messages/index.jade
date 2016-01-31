@@ -1,0 +1,20 @@
+//Created by nicholase on 31/01/16.
+extends ../../layouts/layout
+
+
+block body
+  div
+    span Messages
+  div
+    .form-group
+      label.col-sm-2(for='uuid') UUID
+      .col-sm-10
+        input.col-sm-10(name="uuid", value="Nicky", type="text")
+    .form-group
+      label.col-sm-2(for='message') Message
+      .col-sm-10
+        input.col-sm-10(type="text", value="test", name="message")
+    a.btn.btn-default.btn-sm(name="sendmessage") Send Message
+
+block scripts
+  script(src='/js/pages/messages.js', type="text/javascript")

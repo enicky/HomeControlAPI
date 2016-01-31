@@ -23,9 +23,9 @@ module.exports.passport = {
     protocol : 'auth0',
     strategy : require('passport-auth0'),
     options : {
-      domain : 'nicky.auth0.com',
-        clientID:     'vvQNfAbCbDRhnP8oCnZv4vIGWyuCbSa4',
-      clientSecret: 'Rx17-06Ijndg5bu-EgjjNanDBgCNE7pCKl-fjFdAf4fd03TvwXHBow7qF5rFI2Tn',
+      domain : 'enicky.eu.auth0.com',
+        clientID:     'Te51IapTbN96hBOWs6neimnMNhUDmFtb',
+      clientSecret: 'MuhoBPjFHTen0gcU074s8RVap0UloJxIwn1UDLDytX7672JocAfBsLrCy1jkoTPM',
       //callbackURL:  '/callback'
     }
   },

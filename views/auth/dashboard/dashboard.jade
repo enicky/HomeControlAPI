@@ -1,0 +1,17 @@
+extends ../../layouts/layout
+
+
+block body
+  ul.getting-started
+    if (user)
+      p you are currentrly logged on as #{user.email}
+  div
+    h3 Presence
+    table.table.table-striped
+      thead
+        tr
+          th UUID
+      tbody
+        each uuid in uuids
+          tr
+            td= uuid
