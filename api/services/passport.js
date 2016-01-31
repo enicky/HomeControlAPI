@@ -328,10 +328,12 @@ passport.loadStrategies = function () {
           options.profile   = true;
           break;
         case 'auth0':
+
           options.domain = strategies[key].options.domain;
           options.clientID = strategies[key].options.clientID;
           options.clientSecret = strategies[key].options.clientSecret;
           options.callbackURL = url.resolve(baseUrl, callback);
+          sails.log('debug','options : ', options);
           break;
       }
 
