@@ -9,11 +9,13 @@ var pubnub = require("pubnub")({
 });
 
 
+
 module.exports = {
   channelName : 'Channel-dx9b182es',
+  adminChannelName : 'CHANNEL_ADMIN',
   initializePubNub : function(options){
     pubnub.subscribe({
-      channel : sails.services.pubnub.channelName,
+      channel : sails.services.pubnub.adminChannelName,
 
       callback : function(message){
         sails.log('debug',' > ',  message);
@@ -25,6 +27,15 @@ module.exports = {
       channel : sails.services.pubnub.channelName,
       callback : function(m){console.log(' here_now : ', m)}
     })*/
+  },
+  whoIsThere : function(channelName, cb){
+    pubnub.here_now({
+      channel: channelName,
+      callback : function(m){
+        sails.log('debug','Here now response : ', m);
+        return cb(m);
+      }
+    })
   },
   unsubscribe : function(cb){
     sails.log('debug','Unsubscribing ... ');
