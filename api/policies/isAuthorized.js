@@ -10,6 +10,7 @@
 
 
 module.exports = function (req, res, next) {
+  sails.log('debug','[isAuthorized] => check for jwtToken');
   return jwToken.jwtCheck(req, res, next);
   var token;
 

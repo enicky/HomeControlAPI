@@ -10,8 +10,8 @@ var
   tokenSecret = "secretissecet",
   expressjwt = require('express-jwt');
 
-var secret = 'Rx17-06Ijndg5bu-EgjjNanDBgCNE7pCKl-fjFdAf4fd03TvwXHBow7qF5rFI2Tn';
-var audience = 'vvQNfAbCbDRhnP8oCnZv4vIGWyuCbSa4';
+var secret = 'MuhoBPjFHTen0gcU074s8RVap0UloJxIwn1UDLDytX7672JocAfBsLrCy1jkoTPM';
+var audience = 'Te51IapTbN96hBOWs6neimnMNhUDmFtb';
 
 module.exports.jwtCheck = expressjwt({
   secret : new Buffer(secret, 'base64'),
