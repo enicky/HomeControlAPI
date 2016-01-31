@@ -3,7 +3,7 @@
  */
 $(function(){
   console.log('messages');
-  $('[name="sendmessaget"]').on('click', function(e){
+  $('[name="sendmessage"]').on('click', function(e){
     e.preventDefault();
     console.log('send message');
     var uuid = $('[name="uuid"]').val();
