@@ -14,7 +14,10 @@ function signin() {
         alert('There was an error');
       } else {
         // Success callback
-
+        var p = $('.getting-started').find('p');
+        if(p != null){
+          p.text('Username : '+ profile.name + ' email : ' + profile.email);
+        }
         // Save the JWT token.
         localStorage.setItem('userToken', token);
 
