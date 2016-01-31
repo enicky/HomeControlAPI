@@ -14,7 +14,11 @@ module.exports.bootstrap = function(cb) {
   sails.services.passport.loadStrategies();
   sails.services.pubnub.initializePubNub();
 
-
+  process.on('uncaughtException', function (er) {
+    sails.log('error','uncaughtException');
+    sails.log('debug',er.stack);
+    process.exit(1)
+  })
   process.on('SIGTERM', function() {
     console.log('sigterm ... ');
   });
