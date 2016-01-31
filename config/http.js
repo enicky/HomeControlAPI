@@ -10,7 +10,7 @@
  */
 
 module.exports.http = {
-
+  host : 'iotservice.gitlab.be:1337',
   /****************************************************************************
   *                                                                           *
   * Express middleware to use for every Sails request. To add custom          *
