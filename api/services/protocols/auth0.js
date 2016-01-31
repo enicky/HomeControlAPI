@@ -21,14 +21,14 @@ module.exports = function(req, accessToken, refreshToken, profile, next) {
     query.tokens.refreshToken = refreshToken;
   }
   var data = {
-    client_id : 'vvQNfAbCbDRhnP8oCnZv4vIGWyuCbSa4',
-    redirect_uri:'http://localhost:1337/auth/auth0/callback',
-    client_secret : 'Rx17-06Ijndg5bu-EgjjNanDBgCNE7pCKl-fjFdAf4fd03TvwXHBow7qF5rFI2Tn',
+    client_id : 'Te51IapTbN96hBOWs6neimnMNhUDmFtb',
+    redirect_uri:'http://iotservice.gitlab.be:1337/auth/auth0/callback',
+    client_secret : 'MuhoBPjFHTen0gcU074s8RVap0UloJxIwn1UDLDytX7672JocAfBsLrCy1jkoTPM',
     code : accessToken,
     grant_type:'authorization_code'
 
   };
-  var url = 'https://nicky.auth0.com/oauth/token';
+  var url = 'https://enicky.eu.auth0.com/oauth/token';
   var dataString = 'client_id=' + data.client_id + '&redirect_uri=' + data.redirect_uri + '&client_secret=' + data.client_secret + '&code='+data.code+'&grant_type=' + data.grant_type;
 
   var dataToTest = 'client_id=vvQNfAbCbDRhnP8oCnZv4vIGWyuCbSa4&username=ne%40cegeka.be&password=Aveve2008&grant_type=password&scope=openid&connection=Username-Password-Authentication';
