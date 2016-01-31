@@ -314,7 +314,7 @@ passport.loadStrategies = function () {
 
       Strategy = strategies[key].strategy;
 
-      var baseUrl = sails.getBaseurl();
+      var baseUrl = 'http://iotservice.gitlab.be:1337';//sails.getBaseurl();
       sails.log('base url : ', baseUrl);
       sails.log('host : ', sails.getHost());
       sails.log('switch protocol : ', protocol);
