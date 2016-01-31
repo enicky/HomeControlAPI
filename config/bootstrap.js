@@ -19,11 +19,12 @@ module.exports.bootstrap = function(cb) {
     console.log('sigterm ... ');
   });
   process.on('exit', function(){
+    sails.log('debug','Exit has been called ... ');
     sails.services.pubnub.unsubscribe(function(){
       console.log('call exit ... ');
       process.exit();
     });
-    console.log('exit ... ');
+    sails.log('debug','Post unsubscribe stuff ... ');
 
   })
 
