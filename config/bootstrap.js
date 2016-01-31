@@ -16,7 +16,7 @@ module.exports.bootstrap = function(cb) {
 
   process.on('uncaughtException', function (er) {
     sails.log('error','uncaughtException');
-    sails.log('debug',er.stack);
+    sails.log('debug',er);
     process.exit(1)
   })
   process.on('SIGTERM', function() {
