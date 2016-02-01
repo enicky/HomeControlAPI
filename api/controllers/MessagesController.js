@@ -7,7 +7,13 @@
 
 module.exports = {
 	index : function(req, res){
-    return res.render('./auth/messages/index')
+    pubnub.whoIsThere(pubnub.adminChannelName, function(m){
+      var messagesModel = {
+        uuids : m.uuids
+      }
+      return res.render('./auth/messages/index', messagesModel);
+    });
+
   }
 };
 

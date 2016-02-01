@@ -8,7 +8,6 @@
 module.exports = {
 	index : function(req, res){
     pubnub.whoIsThere(pubnub.adminChannelName, function(m){
-      sails.log('debug','callbac', m);
       var model = {
         uuids : m.uuids
       };

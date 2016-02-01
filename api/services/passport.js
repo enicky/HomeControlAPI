@@ -315,9 +315,9 @@ passport.loadStrategies = function () {
       Strategy = strategies[key].strategy;
 
       var baseUrl = 'http://iotservice.gitlab.be:1337';//sails.getBaseurl();
-      sails.log('base url : ', baseUrl);
-      sails.log('host : ', sails.getHost());
-      sails.log('switch protocol : ', protocol);
+      if(process.env.NODE_ENV == 'development'){
+        baseUrl = sails.getBaseurl();
+      }
       switch (protocol) {
         case 'oauth':
         case 'oauth2':
@@ -335,7 +335,6 @@ passport.loadStrategies = function () {
           options.clientID = strategies[key].options.clientID;
           options.clientSecret = strategies[key].options.clientSecret;
           options.callbackURL = url.resolve(baseUrl, callback);
-          sails.log('debug','options : ', options);
           break;
       }
 

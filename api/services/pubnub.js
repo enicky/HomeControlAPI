@@ -17,10 +17,20 @@ module.exports = {
     pubnub.subscribe({
       channel : sails.services.pubnub.adminChannelName,
 
-      callback : function(message){
+      /*callback : function(message){
         sails.log('debug',' > ',  message);
+      },*/
+      presence: function(m){
+        console.log(' presence : ', m);
+        var newPubnumbMessage = {
+          action : m.action,
+          uuid : m.uuid,
+          messageType : 'presence'
+        };
+        PubNubMessage.create(newPubnumbMessage).exec(function(err, records){
+          PubNubMessage.publishCreate(records);
+        });
       },
-      presence: function(m){console.log(' presence : ', m)},
       message: function(m){console.log(' message : ', m)}
     });
   /*  pubnub.here_now({
@@ -35,6 +45,13 @@ module.exports = {
         return cb(m);
       }
     })
+  },
+  publishMessage : function(o, cb){
+    pubnub.publish({
+      channel : o.channel,
+      message : o.message
+    });
+    if(cb) return cb();
   },
   unsubscribe : function(cb){
     sails.log('debug','Unsubscribing ... ');

@@ -11,6 +11,15 @@ module.exports = {
     uuid : {type : 'string'},
     message : {type : 'string'},
     from : {type : 'string'}
+  },
+  afterCreate : function(newlyInsertedRecord, cb){
+    pubnub.publishMessage({
+      channel  : pubnub.adminChannelName,
+      message  : { text : newlyInsertedRecord.message, target: newlyInsertedRecord.uuid }
+    }, function(){
+      return cb();
+    });
+
   }
 };
 

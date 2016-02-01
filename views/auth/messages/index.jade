@@ -9,7 +9,9 @@ block body
     .form-group
       label.col-sm-2(for='uuid') UUID
       .col-sm-10
-        input.col-sm-10(name="uuid", value="Nicky", type="text")
+        select#uuid.col-sm-10(name='uuid')
+          each uuid in uuids
+            option(name='#{uuid}',value='#{uuid}') #{uuid}
     .form-group
       label.col-sm-2(for='message') Message
       .col-sm-10

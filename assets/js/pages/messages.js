@@ -6,7 +6,7 @@ $(function(){
   $('[name="sendmessage"]').on('click', function(e){
     e.preventDefault();
     console.log('send message');
-    var uuid = $('[name="uuid"]').val();
+    var uuid = $( "#uuid option:selected" ).val();
     var message = $('[name="message"]').val();
     var targetUrl = '/messages/create?uuid=' +uuid + '&message=' + message + '&from=test';
     $.get(targetUrl, function(data, response){
